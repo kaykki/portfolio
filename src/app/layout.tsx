@@ -3,6 +3,7 @@ import "./styles.css";
 
 // components
 import Left from "@/components/left-content";
+import MediaLinks from "@/components/media-links";
 
 export const metadata: Metadata = {
 	title: {
@@ -22,6 +23,7 @@ export default function RootLayout({
 		<html lang="en">
 			<body>
 				<Left />
+				<MediaLinks />
 				<div className="
 				ml-[12.5rem]
 				">
