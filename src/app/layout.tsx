@@ -21,11 +21,11 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en">
-			<body>
+			<body className="text-primary bg-secondary">
 				<Left />
 				<MediaLinks />
 				<div className="
-				ml-[12.5rem]
+				ml-[12.5rem] mr-[150px]
 				">
 					{children}
 				</div>
