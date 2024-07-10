@@ -4,6 +4,8 @@ import "./styles.css";
 // components
 import Left from "@/components/left-content";
 import MediaLinks from "@/components/media-links";
+import Header from "@/components/header";
+import Footer from "@/components/footer";
 
 export const metadata: Metadata = {
 	title: {
@@ -21,14 +23,12 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en">
-			<body className="text-primary bg-secondary">
-				<Left />
-				<MediaLinks />
-				<div className="
-				ml-[12.5rem] mr-[150px]
-				">
+			<body className="text-primary bg-secondary bg-gradient-radial">
+				<Header />
+				<main className="my-8 mx-[20px] pt-28">
 					{children}
-				</div>
+				</main>
+				<Footer />
 			</body>
 		</html>
 	)

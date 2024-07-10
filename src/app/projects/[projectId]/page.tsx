@@ -1,11 +1,9 @@
 import { Metadata } from "next";
-import Link from "next/link";
-
-type Props = {
-    params: {
-        projectId: string;
-    };
-};
+import { fetchProjectById } from "@/utilities/apiCalls";
+import { Tools } from "@/utilities/types";
+import { Props } from "@/utilities/types";
+import { useState } from "react";
+import { Tab, Tabs } from "@nextui-org/tabs";
 
 export const generateMetadata = ({ params }: Props): Metadata => {
     return {
@@ -13,54 +11,46 @@ export const generateMetadata = ({ params }: Props): Metadata => {
     };
 };
 
-type CTA = {
-    title: string;
-    url: string;
-    target: string;
-}
-
-type CTAs = {
-    github: CTA;
-    live_site: CTA;
-}
-
-type Project = {
-    id: number;
-    title: {
-        rendered: string;
-    };
-    acf: {
-        showcase: {
-            project_preview: object;
-            project_overview: string;
-        };
-        development: object;
-        design: {
-            process: string;
-            design_tools: [{
-                name: string;
-            }]
-        };
-        ctas: CTAs[];
-    }
-};
- 
-
-
 export default async function ProjectDetails({
-    params 
+    params
 }: {
     params: { projectId: string }
 }) {
-    const response = await fetch(`https://kayki.ca/portfolio/wp-json/wp/v2/projects/${params.projectId}?_embed`);
-    const projects = await response.json();
-
     
+    const project = await fetchProjectById(params.projectId);
 
     return (
         <section>
-            <img src={projects._embedded['wp:featuredmedia'][0].media_details.sizes.large.source_url} alt="" />
+            <img src={project._embedded['wp:featuredmedia'][0].media_details.sizes.large.source_url} alt="" />
+            <section>
+                <h2>Development Tools</h2>
+                <ul className="flex gap-4">
+                    {(project.acf.development.tools) && (
+                        project.acf.development.tools.map((tool: Tools) => (
+                            <li key={tool.name}
+                                className="text-secondary bg-primary px-2 py-1 w-fit">
+                                {tool.name}
+                            </li>
+                        )
+                    ))}
+                </ul>
+            </section>
             
+            <div className="flex w-full flex-col">
+      <Tabs aria-label="Options">
+        <Tab key="photos" title="Photos">
+          <p>1</p> 
+        </Tab>
+        <Tab key="music" title="Music">
+          <p>2</p> 
+        </Tab>
+        <Tab key="videos" title="Videos">
+          <p>3</p> 
+        </Tab>
+      </Tabs>
+    </div> 
+
+
             {/* {projects.map((project: Project) => (
                 <div key={project.id}>
                     <h1 className="text-2xl font-bold">{project.title.rendered}</h1>
