@@ -12,8 +12,8 @@ export const fetchProjects = async (): Promise<Project[]> => {
 
 export const fetchProjectById = async (id: string): Promise<Project> => {
   const response = await fetch(`${API_URL}/projects/${id}?_embed`);
-  if (!response.ok) {
-    throw new Error(`Failed to fetch project with id ${id}`);
-  }
+//   if (!response.ok) {
+//     throw new Error(`Failed to fetch project with id ${id}`);
+//   }
   return await response.json();
 };

@@ -7,6 +7,11 @@ const TypeWriter: React.FC<TypeWriterProps> = ({ text, delay = 100 }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
 
     useEffect(() => {
+        setCurrentText('');
+        setCurrentIndex(0);
+    }, [text]);
+    
+    useEffect(() => {
         if (currentIndex < text.length) {
             const timeout = setTimeout(() => {
                 setCurrentText(prevText => prevText + text[currentIndex]);
@@ -16,7 +21,7 @@ const TypeWriter: React.FC<TypeWriterProps> = ({ text, delay = 100 }) => {
             return () => clearTimeout(timeout);
         }
     }, [currentIndex, delay, text]);
-
+    
     return <span>{currentText}</span>;
 }
 

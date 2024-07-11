@@ -25,6 +25,15 @@ export type Tools = {
     name: string;
 }
 
+type Link = {
+    title: string;
+    url: string;
+}
+
+type CTAs = {
+    links: Link;
+}
+
 
 export type Project = {
     id: number;
@@ -42,16 +51,7 @@ export type Project = {
         design: {
             tools: Tools[];
         };
-        ctas: {
-            github: {
-                title: string;
-                url: string;
-            };
-            live_site: {
-                title: string;
-                url: string;
-            }
-        }
+        ctas: CTAs[];
     };
     _embedded: Embedded;
 };

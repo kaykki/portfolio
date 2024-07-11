@@ -12,9 +12,12 @@
   "dependencies": {
     "@nextui-org/tabs": "^2.0.32",
     "aos": "^2.3.4",
+    "framer-motion": "^11.3.0",
     "next": "^14.2.5",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-tabs": "^6.0.2",
+    "webpack": "^5.92.1"
   },
   "devDependencies": {
     "@types/node": "^20",

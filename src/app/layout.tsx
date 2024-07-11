@@ -2,8 +2,6 @@ import { Metadata } from "next";
 import "./styles.css";
 
 // components
-import Left from "@/components/left-content";
-import MediaLinks from "@/components/media-links";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 
@@ -25,7 +23,9 @@ export default function RootLayout({
 		<html lang="en">
 			<body className="text-primary bg-secondary bg-gradient-radial">
 				<Header />
-				<main className="my-8 mx-[20px] pt-28">
+				<main className="my-8 mx-[20px] pt-28 
+								tablet:mr-[75px] tablet:ml-[275px] tablet:pt-0
+								laptop:mr-[150px] laptop:ml-[350px] lapto:pt-0">
 					{children}
 				</main>
 				<Footer />
