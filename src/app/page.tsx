@@ -1,25 +1,60 @@
 import Link from "next/link";
+import { Project } from "@/utilities/types";
+import { fetchProjects } from "@/utilities/apiCalls";
+import ProjectCard from "@/components/project-card";
 
-export default function Home() {
+export default async function Home() {
+    const projects = await fetchProjects({query:"&per_page=3"});
     return (
         <section className="flex flex-col items-start justify-center gap-4">
-            <div className="h-[calc(100vh-200px)] mx-auto my-0
-                            flex flex-col items-center justify-center gap-4 
+            <div className="h-[calc(100vh-140px)] mx-auto my-0
+                            flex flex-col items-center justify-center gap-8 
                             tablet:items-start tablet:h-screen tablet:mx-0">
-                <h2 className="font-bold text-7xl laptop:text-9xl">
+                <h2 className="w-[250px] text-left font-bold text-6xl
+                               mobile-lg:w-11/12 mobile-lg:text-8xl
+                               tablet:text-8xl tablet:text-left
+                               laptop:text-9xl
+                               desktop:text-[13rem]">
                     Kaki Kagatan
                 </h2>
-                <p className="font-bold text-2xl">Front-End Developer</p>
-
-                <div className="text-secondary flex flex-col gap-4 items-center justify-center w-full
+                
+                    {/* <div className="w-[98%] h-2 bg-accent z-0 absolute bottom-1
+                                    laptop:h-3"></div> */}
+                    <p className="w-[250px] text-xl text-left
+                                  mobile-lg:w-11/12
+                                  laptop:text-4xl">Front-End Web Developer</p>
+                <div className="flex flex-col gap-4 items-center justify-center w-full
+                                mobile-lg:flex-row
                                 tablet:flex-row tablet:justify-start">
-                    <Link href={'/about'} className="w-[200px] bg-primary px-4 py-2 text-center rounded-lg">Get to know me</Link>
-                    <Link href={'/projects'} className="w-[200px] bg-primary px-4 py-2 text-center rounded-lg">View my work</Link>
-                </div> 
+
+                    <Link href={'/projects'} 
+                          className="w-[200px] bg-primary text-secondary px-4 py-2 text-center rounded-lg shadow-buttons
+                                     mobile-lg:w-2/5
+                                     desktop:py-4 desktop:text-2xl">
+                        View my work
+                    </Link>
+                    <Link href={'/pages/98'} 
+                          className="w-[200px] bg-secondary px-4 py-2 text-center rounded-lg shadow-buttons
+                                     mobile-lg:w-2/5
+                                     desktop:py-4 desktop:text-2xl">
+                        Get to know me
+                    </Link>
+                </div>
             </div>
-            
-            <section className="mx-auto my-0">
-                <h2 className="text-2xl font-bold">Featured Project</h2>
+
+            <section className="mx-auto my-0 flex flex-col gap-8
+                                tablet:mx-0">
+                <div className="flex justify-between items-center">
+                    <h2 className="text-2xl font-bold laptop:text-4xl">Featured Project</h2>
+                    <Link href={"/projects"} className="text-secondary bg-primary px-7 py-3 w-fit rounded-lg">View All</Link>
+                </div>
+                
+                <section className="flex flex-row flex-wrap items-center justify-center gap-8
+                                    tablet:justify-start">
+                    {projects.map((project: Project) => (
+                        <ProjectCard project={project} key={project.id} />
+                    ))}
+                </section>
             </section>
         </section>
     );

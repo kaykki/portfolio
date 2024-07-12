@@ -11,7 +11,7 @@ export default async function Projects() {
     const projects = await fetchProjects();
 
     return (
-        <section className="flex flex-wrap gap-8 items-center justify-center">
+        <section className="flex flex-wrap items-center justify-start gap-8">
             {projects.map((project: Project) => (
                 <ProjectCard project={project} key={project.id}/>
             ))}

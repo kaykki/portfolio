@@ -6,6 +6,7 @@ const TypeWriter: React.FC<TypeWriterProps> = ({ text, delay = 100 }) => {
     const [currentText, setCurrentText]   = useState('');
     const [currentIndex, setCurrentIndex] = useState(0);
 
+    // Resets the curretn text and index
     useEffect(() => {
         setCurrentText('');
         setCurrentIndex(0);

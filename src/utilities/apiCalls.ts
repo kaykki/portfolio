@@ -1,9 +1,9 @@
-import { Project } from "./types";
+import { Project, FetchProjectsOptions } from "./types";
 
 const API_URL = "https://kayki.ca/portfolio/wp-json/wp/v2/";
 
-export const fetchProjects = async (): Promise<Project[]> => {
-  const response = await fetch(`${API_URL}projects?_embed`);
+export const fetchProjects = async ({ query = "" }:FetchProjectsOptions = {})  : Promise<Project[]> => {
+  const response = await fetch(`${API_URL}projects?_embed${query}`);
   if (!response.ok) {
     throw new Error('Failed to fetch projects');
   }

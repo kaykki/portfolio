@@ -1,9 +1,15 @@
+// Project Types
 type Large = {
+    source_url: string;
+}
+
+type Full = {
     source_url: string;
 }
 
 type Sizes = {
     large: Large;
+    full: Full;
 }
 
 type MediaDetails = {
@@ -34,6 +40,20 @@ type CTAs = {
     links: Link;
 }
 
+type Roles = {
+    name: string;
+}
+
+type Features = {
+
+    demo: {
+        title: string;
+        url: string;
+        alt: string;
+        type: string
+    };
+    explanation: string;
+}
 
 export type Project = {
     id: number;
@@ -42,19 +62,58 @@ export type Project = {
     };
     acf: {
         showcase: {
-            project_preview: object;
+            project_preview: {
+                url: string;
+                type: string;
+                alt: string;
+            };
             project_overview: string;
+            roles: Roles[];
+            team_size: number;
         };
         development: {
             tools: Tools[];
+            process: string;
+            features: Features[];
+            improvements: string;
         };
         design: {
             tools: Tools[];
+            process: string;
+            features: Features[];
+            improvements: string;
         };
         ctas: CTAs[];
     };
     _embedded: Embedded;
 };
+
+export type FetchProjectsOptions = {
+    query?: string;
+}
+
+// About
+
+type Languages = {
+    name: string;
+}
+type Frameworks = {
+    name: string;
+}
+type Design = {
+    name: string;
+}
+
+export type AboutPage = {
+    id: number;
+    acf: {
+        intro_paragraph: string;
+        languages: Languages[];
+        frameworks: Frameworks[];
+        design_tools: Design[];
+    }
+}
+
 
 // Props
 export type Props = {
@@ -70,4 +129,8 @@ export type ProjectProps = {
 export type TypeWriterProps = {
     text: string;
     delay?: number;
+}
+
+export type AboutPageProps = {
+    about: AboutPage;
 }

@@ -1,3 +1,7 @@
 export default function Loading() {
-    return <h1 className="text-8xl">Loading</h1>;
+    return (
+        <div className="text-8xl">
+
+        </div>
+    );
 }

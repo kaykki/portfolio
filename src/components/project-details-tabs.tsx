@@ -5,59 +5,123 @@ import { Tabs, TabList, Tab, TabPanel } from "react-tabs";
 
 const ProjectDetailsTabs: React.FC<ProjectProps> = ({ project }) => {
 
-    const [selection, setSelection] = useState("development");
+    const [currentTab, setCurrentTab] = useState(1);
 
     return (
-        <Tabs className="shadow-project-details flex flex-col">
-            <TabList className="flex justify-around p-4 border-">
-                <Tab>Development</Tab>
-                <Tab>Design</Tab>
+        <Tabs className="shadow-project-details flex flex-col rounded-xl text-secondary w-full">
+            <TabList className="flex justify-around bg-primary rounded-t-xl">
+                <Tab onClick={() => setCurrentTab(1)}
+                    className={`${currentTab === 1 ? "bg-accent hover:text-primary underline underline-offset-8 decoration-primary decoration-wavy" : "bg-primary hover:text-accent"}
+                     py-4 text-center w-full focus:outline-none cursor-pointer rounded-tl-lg
+                     desktop:text-2xl desktop:py-4`}>
+                    Development
+                </Tab>
+                <Tab onClick={() => setCurrentTab(2)}
+                    className={`${currentTab === 2 ? "bg-accent hover:text-primary underline underline-offset-8 decoration-primary decoration-wavy" : "bg-primary hover:text-accent"}
+                     py-4 text-center w-full focus:outline-none cursor-pointer rounded-tr-xl
+                     desktop:text-2xl desktop:py-4`}>
+                    Design
+                </Tab>
             </TabList>
-            <TabPanel className="p-4">
-                <h2>Development Tools</h2>
-                <ul className="flex gap-4">
-                    {(project.acf.development.tools) && (
-                        project.acf.development.tools.map((tool) => (
-                            <li key={tool.name}
-                                className="text-secondary bg-primary px-2 py-1 w-fit">
-                                {tool.name}
-                            </li>
-                        )
-                        ))}
-                </ul>
+
+            {/* Development */}
+            <TabPanel className={`${currentTab === 1 ? "bg-accent p-4" : "bg-secondary p-0"}
+                      rounded-b-xl`}>
+                <section className="flex flex-col gap-4 p-4 rounded-tr-lg">
+
+                    {/* Process */}
+                    <h2 className="font-bold text-2xl">Process:</h2>
+                    <p>{project.acf.development.process}</p>
+
+                    {/* Tools */}
+                    <h2 className="font-bold text-2xl">Tools:</h2>
+                    <ul className="flex flex-wrap gap-4">
+                        {(project.acf.development.tools) && (
+                            project.acf.development.tools.map((tool) => (
+                                <li key={tool.name}
+                                    className="text-secondary bg-primary px-6 py-2 w-fit rounded-lg">
+                                    {tool.name}
+                                </li>
+                            )
+                            ))}
+                    </ul>
+
+                    {/* Features */}
+                    <h2 className="font-bold text-2xl">Features:</h2>
+                    <ul className="flex flex-wrap gap-4">
+                        {(project.acf.development.features) && (
+                            project.acf.development.features.map((feature) => (
+                                <li key={feature.demo.title}
+                                    className="bg-primary rounded-lg">
+                                    {(feature.demo.type == "image") && (
+                                        <img src={feature.demo.url} alt={feature.demo.alt} className="rounded-t-lg"/>
+                                    )} 
+                                        
+                                    {feature.demo.type == "webm"} {
+                                        <video autoPlay loop muted className="rounded-t-lg">
+                                            <source src={feature.demo.url}/>
+                                        </video>
+                                    }
+                                    <p className="p-4">{feature.explanation}</p>
+                                </li>)
+                            ))}
+                    </ul>
+
+                    {/* Reflection */}
+                    <h2 className="font-bold text-2xl">Reflection:</h2>
+                    <p>{project.acf.development.improvements}</p>
+                </section>
             </TabPanel>
-            <TabPanel>Content for Tab 2</TabPanel>
+
+            {/* Design */}
+            <TabPanel className={`${currentTab === 2 ? "bg-accent p-4" : "bg-secondary p-0"}
+                      rounded-b-xl`}>
+                <section className="flex flex-col gap-4 p-4">
+
+                    {/* Process */}
+                    <h2 className="font-bold text-2xl">Process:</h2>
+                    <p>{project.acf.design.process}</p>
+
+                    {/* Tools */}
+                    <h2 className="font-bold text-2xl">Tools:</h2>
+                    <ul className="flex flex-wrap gap-4">
+                        {(project.acf.design.tools) && (
+                            project.acf.design.tools.map((tool) => (
+                                <li key={tool.name}
+                                    className="text-secondary bg-primary px-6 py-2 w-fit rounded-lg">
+                                    {tool.name}
+                                </li>
+                            )
+                            ))}
+                    </ul>
+
+                    {/* Features */}
+                    <h2 className="font-bold text-2xl">Features:</h2>
+                    <ul className="flex flex-wrap gap-4">
+                        {(project.acf.design.features) && (
+                            project.acf.design.features.map((feature) => (
+                                <li key={feature.demo.title}
+                                    className="bg-primary rounded-lg">
+                                    {(feature.demo.type == "image") && (
+                                        <img src={feature.demo.url} alt={feature.demo.alt} className="rounded-t-lg"/>
+                                    )} 
+                                        
+                                    {feature.demo.type == "webm"} {
+                                        <video autoPlay loop muted className="rounded-t-lg">
+                                            <source src={feature.demo.url}/>
+                                        </video>
+                                    }
+                                    <p className="p-4">{feature.explanation}</p>
+                                </li>)
+                            ))}
+                    </ul>
+
+                    {/* Reflection */}
+                    <h2 className="font-bold text-2xl">Reflection:</h2>
+                    <p>{project.acf.development.improvements}</p>
+                </section>
+            </TabPanel>
         </Tabs>
-        // <div className="flex w-full flex-col shadow-nav">
-        //   <Tabs variant="underlined" color="default" aria-label="Options" selectedKey={selection} onSelectionChange={(value: any) => {
-        //     setSelection(value);
-        //   }} className="p-0 m-0">
-        //     <Tab key="development" title="Development" className={selection == "development" ? "text-accent font-bold text-lg underline underline-offset-4 decoration-wavy" : "bg-secondary text-lg"}>
-        //       <Card className="p-4 text-primary">
-        //         <CardBody>
-        //         <h2>Development Tools</h2>
-        //         <ul className="flex gap-4">
-        //             {(project.acf.development.tools) && (
-        //                 project.acf.development.tools.map((tool) => (
-        //                     <li key={tool.name}
-        //                         className="text-secondary bg-primary px-2 py-1 w-fit">
-        //                         {tool.name}
-        //                     </li>
-        //                 )
-        //             ))}
-        //         </ul>
-        //         </CardBody>
-        //       </Card>  
-        //     </Tab>
-        //     <Tab key="design" title="Design" className={selection == "design" ? "text-accent font-bold text-lg underline underline-offset-4 decoration-wavy" : "bg-secondary text-lg"}>
-        //       <Card className="p-4">
-        //         <CardBody className="text-primary">
-        //           Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-        //         </CardBody>
-        //       </Card>  
-        //     </Tab>
-        //   </Tabs>
-        // </div>  
     );
 }
 

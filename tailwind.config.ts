@@ -23,10 +23,13 @@ const config: Config = {
       },
       boxShadow: {
         "projects": "0 0.5rem 1rem -0.4rem #004D57",
-        "nav": "0 0.1rem 1rem -0.3rem #004D57",
+        "nav": "0 0.1rem 1rem -0.1rem #004D57",
+        "heading": "0 0.1rem 1rem -0.3rem #004D57",
+        "buttons": "0 0.1rem 1rem -0.3rem #004D57",
         "project-details": "0 0.1rem 1rem -0.3rem #004D57",
       },
       screens: {
+        'mobile-lg': '27rem',
         'tablet': '50em',
         'laptop': '60em',
         'desktop': '75em'
