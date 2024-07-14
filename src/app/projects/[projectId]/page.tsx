@@ -2,6 +2,22 @@ import { Metadata } from "next";
 import { Props, Project } from "@/utilities/types";
 import ProjectDetailsTabs from "@/components/project-details-tabs";
 
+const fetchAllProjectIds = async (): Promise<string[]> => {
+    const response = await fetch('https://kayki.ca/portfolio/wp-json/wp/v2/projects');
+    if (!response.ok) {
+        throw new Error('Failed to fetch project IDs');
+    }
+    const projects: Project[] = await response.json();
+    return projects.map(project => project.id.toString());
+};
+
+export const generateStaticParams = async () => {
+    const ids = await fetchAllProjectIds();
+    return ids.map(id => ({
+        projectId: id
+    }));
+};
+
 export const generateMetadata = async ({ params }: Props): Promise<Metadata> => {
 
     const response = await fetch(`https://kayki.ca/portfolio/wp-json/wp/v2/projects/${params.projectId}?_embed`);
@@ -26,17 +42,14 @@ export default async function ProjectDetails({
     }
     const project: Project = await response.json();
 
-
-
-
     return (
         <section className="flex flex-col gap-8">
-            {project.acf.showcase.project_preview.type == "webm" &&
-                <video autoPlay loop muted className="rounded-xl">
+            {project.acf.showcase.project_preview.subtype == "webm" &&
+                <video autoPlay playsInline loop muted className="rounded-xl">
                     <source src={project.acf.showcase.project_preview.url}/>
                 </video>
             }
-            {project.acf.showcase.project_preview.type == "image" &&
+            {project.acf.showcase.project_preview.subtype == "image" &&
                 <img src={project.acf.showcase.project_preview.url} alt={project.acf.showcase.project_preview.alt} />
             }
 
@@ -69,8 +82,6 @@ export default async function ProjectDetails({
 
                 <ProjectDetailsTabs project={project} />
             </div>
-
-
         </section>
     );
 }

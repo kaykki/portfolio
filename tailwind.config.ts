@@ -16,11 +16,6 @@ const config: Config = {
         secondary: "#F0F0F0",
         accent: "#1E8572"
       },
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(black 1px, transparent 0))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-      },
       boxShadow: {
         "projects": "0 0.5rem 1rem -0.4rem #004D57",
         "nav": "0 0.1rem 1rem -0.1rem #004D57",
@@ -32,7 +27,8 @@ const config: Config = {
         'mobile-lg': '27rem',
         'tablet': '50em',
         'laptop': '60em',
-        'desktop': '75em'
+        'desktop': '75em',
+        'desktop-lg': '94em'
       }
     },
   },

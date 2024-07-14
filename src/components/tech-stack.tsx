@@ -15,18 +15,24 @@ const TechStack: React.FC<AboutPageProps> = ({ about }) => {
 
     return (
         <section>
-            <Tabs className="shadow-project-details">
-                <TabList className="flex justify-start rounded-t-lg bg-primary text-secondary">
+            <Tabs className="shadow-project-details rounded-xl">
+                <TabList className="flex justify-start rounded-t-xl bg-primary text-secondary">
                     {stackLabels.map((label) => (
                         <Tab key={label.number} onClick={() => setCurrentTab(label.number)}
                             className={`${currentTab === label.number ? "bg-accent hover:text-primary" : "bg-primary hover:text-accent"}
-                                        px-2 py-1 text-center w-full focus:outline-none cursor-pointer`}>
+                                        px-2 py-2 text-center w-full focus:outline-none cursor-pointer rounded-t-xl
+                                        mobile-lg:text-lg
+                                        laptop:text-xl
+                                        desktop:text-2xl desktop:py-4`}>
                             {label.name}
                         </Tab>
                     ))}
                 </TabList>
-                <TabPanel className={`${currentTab === 1 ? "bg-accent p-4" : "bg-secondary p-0"}`}>
-                    <ul className="flex flex-wrap gap-4">
+                <TabPanel className={`${currentTab === 1 ? "bg-accent p-4" : "bg-secondary p-0"} rounded-b-xl`}>
+                    <ul className="flex flex-wrap gap-4
+                                   mobile-lg:text-lg
+                                   laptop:text-xl
+                                   desktop:text-2xl">
                         {(about.acf.languages) && (
                             about.acf.languages.map((language) => (
                                 <li key={language.name}
@@ -37,8 +43,11 @@ const TechStack: React.FC<AboutPageProps> = ({ about }) => {
                             ))}
                     </ul>
                 </TabPanel>
-                <TabPanel className={`${currentTab === 2 ? "bg-accent p-4" : "bg-secondary p-0"}`}>
-                    <ul className="flex flex-wrap gap-4">
+                <TabPanel className={`${currentTab === 2 ? "bg-accent p-4" : "bg-secondary p-0"} rounded-b-xl`}>
+                    <ul className="flex flex-wrap gap-4
+                                   mobile-lg:text-lg
+                                   laptop:text-xl
+                                   desktop:text-2xl">
                         {(about.acf.frameworks) && (
                             about.acf.frameworks.map((framework) => (
                                 <li key={framework.name}
@@ -49,12 +58,15 @@ const TechStack: React.FC<AboutPageProps> = ({ about }) => {
                             ))}
                     </ul>
                 </TabPanel>
-                <TabPanel className={`${currentTab === 3 ? "bg-accent p-4" : "bg-secondary p-0"}`}>
-                    <ul className="flex flex-wrap gap-4">
+                <TabPanel className={`${currentTab === 3 ? "bg-accent p-4" : "bg-secondary p-0"} rounded-b-xl`}>
+                    <ul className="flex flex-wrap gap-4
+                                   mobile-lg:text-lg
+                                   laptop:text-xl
+                                   desktop:text-2xl">
                         {(about.acf.design_tools) && (
                             about.acf.design_tools.map((tool) => (
                                 <li key={tool.name}
-                                    className="text-secondary bg-primary px-4 py-2 w-fit rounded-lg">
+                                    className="text-secondary bg-primary px-7 py-3 w-fit rounded-lg">
                                     {tool.name}
                                 </li>
                             )

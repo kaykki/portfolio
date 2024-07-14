@@ -48,21 +48,24 @@ const ProjectDetailsTabs: React.FC<ProjectProps> = ({ project }) => {
 
                     {/* Features */}
                     <h2 className="font-bold text-2xl">Features:</h2>
-                    <ul className="flex flex-wrap gap-4">
+                    <ul className={`grid gap-4
+                                    mobile-lg:gap-8
+                                    ${project.acf.development.features.length > 1 && "desktop-lg:grid-cols-2"}`}>
                         {(project.acf.development.features) && (
                             project.acf.development.features.map((feature) => (
                                 <li key={feature.demo.title}
-                                    className="bg-primary rounded-lg">
-                                    {(feature.demo.type == "image") && (
-                                        <img src={feature.demo.url} alt={feature.demo.alt} className="rounded-t-lg"/>
-                                    )} 
-                                        
-                                    {feature.demo.type == "webm"} {
-                                        <video autoPlay loop muted className="rounded-t-lg">
-                                            <source src={feature.demo.url}/>
+                                    className="bg-primary rounded-lg w-fit">
+                                    {(feature.demo.subtype == "png") && (
+                                        <img src={feature.demo.url} alt={feature.demo.alt} className="rounded-t-lg" />
+                                    )}
+
+                                    {feature.demo.subtype == "webm" &&
+                                        <video playsInline autoPlay loop muted className="rounded-t-lg">
+                                            <source src={feature.demo.url} />
                                         </video>
                                     }
-                                    <p className="p-4">{feature.explanation}</p>
+                                    <p className="p-4
+                                                  mobile-lg:text-xl">{feature.explanation}</p>
                                 </li>)
                             ))}
                     </ul>
@@ -101,14 +104,15 @@ const ProjectDetailsTabs: React.FC<ProjectProps> = ({ project }) => {
                         {(project.acf.design.features) && (
                             project.acf.design.features.map((feature) => (
                                 <li key={feature.demo.title}
-                                    className="bg-primary rounded-lg">
-                                    {(feature.demo.type == "image") && (
-                                        <img src={feature.demo.url} alt={feature.demo.alt} className="rounded-t-lg"/>
-                                    )} 
-                                        
-                                    {feature.demo.type == "webm"} {
-                                        <video autoPlay loop muted className="rounded-t-lg">
-                                            <source src={feature.demo.url}/>
+                                    className="bg-primary rounded-lg max-w-[350px]">
+                                    {(feature.demo.subtype == "png") || (feature.demo.subtype == "gif") ?
+                                        <img src={feature.demo.url} alt={feature.demo.alt} className="rounded-t-lg" />
+                                        : <p>Site doesn't support this file type.</p>
+                                    }
+
+                                    {feature.demo.subtype == "webm" &&
+                                        <video playsInline autoPlay loop muted className="rounded-t-lg">
+                                            <source src={feature.demo.url} />
                                         </video>
                                     }
                                     <p className="p-4">{feature.explanation}</p>

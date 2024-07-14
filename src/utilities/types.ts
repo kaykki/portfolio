@@ -50,7 +50,7 @@ type Features = {
         title: string;
         url: string;
         alt: string;
-        type: string
+        subtype: string
     };
     explanation: string;
 }
@@ -64,7 +64,7 @@ export type Project = {
         showcase: {
             project_preview: {
                 url: string;
-                type: string;
+                subtype: string;
                 alt: string;
             };
             project_overview: string;

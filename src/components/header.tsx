@@ -17,8 +17,15 @@ export default function Header() {
     const [pageHeading, setPageHeading] = useState("");
     const pathName = usePathname();
 
+    console.log(pathName);
+    
+    const currentLink = navLinks.find((link) => pathName.endsWith(link.href));
+
+    console.log(currentLink);
+    
+
     useEffect(() => {
-        const currentLink    = navLinks.find((link) => pathName.endsWith(link.href));
+        
         const currentNavLink = pathName;
         
         const fetchData = async () => {

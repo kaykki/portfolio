@@ -6,7 +6,7 @@ import ProjectCard from "@/components/project-card";
 export default async function Home() {
     const projects = await fetchProjects({query:"&per_page=3"});
     return (
-        <section className="flex flex-col items-start justify-center gap-4">
+        <section className="flex flex-col justify-center gap-4">
             <div className="h-[calc(100vh-140px)] mx-auto my-0
                             flex flex-col items-center justify-center gap-8 
                             tablet:items-start tablet:h-screen tablet:mx-0">
@@ -18,8 +18,6 @@ export default async function Home() {
                     Kaki Kagatan
                 </h2>
                 
-                    {/* <div className="w-[98%] h-2 bg-accent z-0 absolute bottom-1
-                                    laptop:h-3"></div> */}
                     <p className="w-[250px] text-xl text-left
                                   mobile-lg:w-11/12
                                   laptop:text-4xl">Front-End Web Developer</p>
@@ -46,11 +44,13 @@ export default async function Home() {
                                 tablet:mx-0">
                 <div className="flex justify-between items-center">
                     <h2 className="text-2xl font-bold laptop:text-4xl">Featured Project</h2>
-                    <Link href={"/projects"} className="text-secondary bg-primary px-7 py-3 w-fit rounded-lg">View All</Link>
+                    <Link href={"/projects"} className="text-secondary bg-primary px-3 py-2 w-fit rounded-lg">View All</Link>
                 </div>
-                
-                <section className="flex flex-row flex-wrap items-center justify-center gap-8
-                                    tablet:justify-start">
+                {/* flex flex-row flex-wrap items-center justify-center gap-8 mx-0 my-auto */}
+                <section className="grid gap-12 mb-4
+                                    tablet:mb-8 tablet:justify-center tablet:items-center
+                                    desktop:grid-cols-2 desktop:justify-between
+                                    desktop-lg:grid-cols-3">
                     {projects.map((project: Project) => (
                         <ProjectCard project={project} key={project.id} />
                     ))}
