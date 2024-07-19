@@ -45,7 +45,7 @@ export default async function ProjectDetails({
     return (
         <section className="flex flex-col gap-8">
             {project.acf.showcase.project_preview.subtype == "webm" &&
-                <video autoPlay playsInline loop muted className="rounded-xl">
+                <video autoPlay playsInline loop muted className="rounded-xl shadow-project-details">
                     <source src={project.acf.showcase.project_preview.url}/>
                 </video>
             }

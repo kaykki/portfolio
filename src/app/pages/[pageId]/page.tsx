@@ -20,20 +20,27 @@ export default async function About() {
     const data: AboutPage = await response.json();
 
     return (
-        <section className="flex flex-col gap-4">
-
+        <section className="flex flex-col gap-6
+                            desktop:grid desktop:grid-cols-2 desktop:gap-x-16">
+            <img src={data.acf.portrait.url} 
+                 alt={data.acf.portrait.url} 
+                 className="rounded-lg
+                            desktop:col-start-2 desktop:col-end-3"/>
             {/* About Myself */}
-            <h2 className="text-2xl font-bold
-                           mobile-lg:text-3xl
-                           tablet:text-4xl">About Myself!</h2>
-            <p className="text-lg
-                          mobile-lg:text-xl
-                          desktop:text-2xl">{data.acf.intro_paragraph}</p>
+            <section className="flex flex-col gap-4
+                                desktop:col-start-1 desktop:col-end-2 desktop:row-start-1 desktop:row-end-2 desktop:self-center">
+                <h2 className="text-2xl font-bold
+                            mobile-lg:text-3xl
+                            tablet:text-4xl
+                            desktop:text-5xl
+                            ">About Myself!</h2>
+                <p className="text-lg
+                            mobile-lg:text-xl
+                            desktop:text-2xl
+                            ">{data.acf.intro_paragraph}</p>
+            </section>
 
-            {/* Tech Stack */}
-            <h2 className="text-2xl font-bold
-                           mobile-lg:text-3xl
-                           tablet:text-4xl">Tech Stack</h2>
+            
             <TechStack about={data}/>
         </section>
 

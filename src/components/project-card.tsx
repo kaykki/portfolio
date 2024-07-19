@@ -3,7 +3,8 @@ import { ProjectProps, Tools } from "@/utilities/types";
 
 const ProjectCard: React.FC<ProjectProps> = ({ project }) => {
     return (
-        <div className="max-w-[500px] max-h-[600px] shadow-projects rounded-lg">
+        <div className="max-w-[500px] max-h-[600px] shadow-projects rounded-lg 
+                        transform hover:scale-105 transition duration-300 ease-in-out">
             <Link href={`/projects/${project.id}`} title={project.title.rendered}>
                 <div className="flex flex-col">
 
@@ -38,7 +39,7 @@ const ProjectCard: React.FC<ProjectProps> = ({ project }) => {
                         
                         <p className="text-sm
                                       mobile-lg:text-lg">{project.acf.showcase.project_overview.length > 20 ?
-                            project.acf.showcase.project_overview.split(' ').slice(0, 19).join(' ') + '...' :
+                            project.acf.showcase.project_overview.split(' ').slice(0, 20).join(' ') + '...' :
                             project.acf.showcase.project_overview
                         }</p>                        
                     </div>

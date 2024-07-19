@@ -14,7 +14,8 @@ export default async function Home() {
                                mobile-lg:w-11/12 mobile-lg:text-8xl
                                tablet:text-8xl tablet:text-left
                                laptop:text-9xl
-                               desktop:text-[13rem]">
+                               desktop:text-[13rem]
+                               desktop-lg:w-10/12">
                     Kaki Kagatan
                 </h2>
                 
@@ -26,13 +27,15 @@ export default async function Home() {
                                 tablet:flex-row tablet:justify-start">
 
                     <Link href={'/projects'} 
-                          className="w-[200px] bg-primary text-secondary px-4 py-2 text-center rounded-lg shadow-buttons
+                          className="w-[200px] bg-primary text-secondary px-4 py-2 text-center rounded-lg shadow-buttons 
+                                   hover:bg-accent transform hover:scale-95 transition duration-300 ease-in-out
                                      mobile-lg:w-2/5
                                      desktop:py-4 desktop:text-2xl">
                         View my work
                     </Link>
                     <Link href={'/pages/98'} 
                           className="w-[200px] bg-secondary px-4 py-2 text-center rounded-lg shadow-buttons
+                                     hover:bg-accent hover:text-secondary transform hover:scale-95 transition duration-300 ease-in-out
                                      mobile-lg:w-2/5
                                      desktop:py-4 desktop:text-2xl">
                         Get to know me
@@ -44,7 +47,10 @@ export default async function Home() {
                                 tablet:mx-0">
                 <div className="flex justify-between items-center">
                     <h2 className="text-2xl font-bold laptop:text-4xl">Featured Project</h2>
-                    <Link href={"/projects"} className="text-secondary bg-primary px-3 py-2 w-fit rounded-lg">View All</Link>
+                    <Link href={"/projects"} 
+                          className="text-secondary bg-primary px-3 py-2 w-fit rounded-lg
+                                     hover:bg-accent transform hover:scale-95 transition duration-300 ease-in-out
+                        ">View All</Link>
                 </div>
                 {/* flex flex-row flex-wrap items-center justify-center gap-8 mx-0 my-auto */}
                 <section className="grid gap-12 mb-4

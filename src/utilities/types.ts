@@ -104,9 +104,15 @@ type Design = {
     name: string;
 }
 
+type Portrait = {
+    url: string;
+    alt: string;
+}
+
 export type AboutPage = {
     id: number;
     acf: {
+        portrait: Portrait;
         intro_paragraph: string;
         languages: Languages[];
         frameworks: Frameworks[];

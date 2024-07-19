@@ -24,7 +24,7 @@ const config: Config = {
         "project-details": "0 0.1rem 1rem -0.3rem #004D57",
       },
       screens: {
-        'mobile-lg': '27rem',
+        'mobile-lg': '27em',
         'tablet': '50em',
         'laptop': '60em',
         'desktop': '75em',

@@ -11,13 +11,13 @@ const ProjectDetailsTabs: React.FC<ProjectProps> = ({ project }) => {
         <Tabs className="shadow-project-details flex flex-col rounded-xl text-secondary w-full">
             <TabList className="flex justify-around bg-primary rounded-t-xl">
                 <Tab onClick={() => setCurrentTab(1)}
-                    className={`${currentTab === 1 ? "bg-accent hover:text-primary underline underline-offset-8 decoration-primary decoration-wavy" : "bg-primary hover:text-accent"}
+                    className={`${currentTab === 1 ? "bg-accent hover:text-primary" : "bg-primary hover:text-accent"}
                      py-4 text-center w-full focus:outline-none cursor-pointer rounded-tl-lg
                      desktop:text-2xl desktop:py-4`}>
                     Development
                 </Tab>
                 <Tab onClick={() => setCurrentTab(2)}
-                    className={`${currentTab === 2 ? "bg-accent hover:text-primary underline underline-offset-8 decoration-primary decoration-wavy" : "bg-primary hover:text-accent"}
+                    className={`${currentTab === 2 ? "bg-accent hover:text-primary" : "bg-primary hover:text-accent"}
                      py-4 text-center w-full focus:outline-none cursor-pointer rounded-tr-xl
                      desktop:text-2xl desktop:py-4`}>
                     Design

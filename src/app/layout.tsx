@@ -25,7 +25,7 @@ export default function RootLayout({
 				<Header />
 				<main className="my-8 mx-[20px] pt-28 
 								tablet:mr-[75px] tablet:ml-[275px] tablet:pt-0
-								laptop:mr-[150px] laptop:ml-[350px] lapto:pt-0">
+								laptop:mr-[150px] laptop:ml-[350px] laptop:pt-0">
 					{children}
 				</main>
 				<Footer />

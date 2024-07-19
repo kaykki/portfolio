@@ -14,7 +14,13 @@ const TechStack: React.FC<AboutPageProps> = ({ about }) => {
     const [currentTab, setCurrentTab] = useState(1);
 
     return (
-        <section>
+        <section className='flex flex-col gap-6
+                            laptop:col-span-2'>
+            {/* Tech Stack */}
+            <h2 className="text-2xl font-bold
+                           mobile-lg:text-3xl
+                           tablet:text-4xl
+                           desktop:col-span-2 desktop:text-5xl">Tech Stack</h2>
             <Tabs className="shadow-project-details rounded-xl">
                 <TabList className="flex justify-start rounded-t-xl bg-primary text-secondary">
                     {stackLabels.map((label) => (
