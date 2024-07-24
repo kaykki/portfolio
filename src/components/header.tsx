@@ -42,7 +42,7 @@ export default function Header() {
     }, [pathName]);
 
     return (
-        <header className="flex flex-col justify-between items-center ">
+        <header className="flex flex-col justify-between items-center z-50">
 
             {/* Fixed Heading */}
             <div className="fixed top-6 left-0 p-4 shadow-heading bg-primary flex items-center gap-4 rounded-r-lg z-20
@@ -64,11 +64,11 @@ export default function Header() {
             </div>
 
             {/* Main Navigation */}
-            <nav className="h-main-nav fixed bottom-4 my-0 mx-auto
+            <nav className="h-main-nav fixed bottom-4 my-0 mx-auto 
                             tablet:my-auto tablet:left-4 tablet:bottom-0 tablet:top-0 tablet:h-fit tablet:flex tablet:justify-center tablet:items-center">
                 <ul className="h-fit flex justify-center items-center shadow-nav
                           bg-secondary text-primary p-4 gap-4 
-                            rounded-lg
+                            rounded-lg 
                             tablet:flex-col tablet:items-start tablet:shadow-none">
                     {navLinks.map((link) => {
                         const isActive = pathName.includes(link.name.toLowerCase());

@@ -23,7 +23,7 @@ export default function RootLayout({
 		<html lang="en">
 			<body className="text-primary bg-secondary bg-gradient-radial">
 				<Header />
-				<main className="my-8 mx-[20px] pt-28 
+				<main className="my-8 mx-[20px]
 								tablet:mr-[75px] tablet:ml-[275px] tablet:pt-0
 								laptop:mr-[150px] laptop:ml-[350px] laptop:pt-0">
 					{children}

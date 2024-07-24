@@ -6,7 +6,7 @@ import ProjectCard from "@/components/project-card";
 export default async function Home() {
     const projects = await fetchProjects({query:"&per_page=3"});
     return (
-        <section className="flex flex-col justify-center gap-4">
+        <section className="flex flex-col justify-center items-center gap-4">
             <div className="h-[calc(100vh-140px)] mx-auto my-0
                             flex flex-col items-center justify-center gap-8 
                             tablet:items-start tablet:h-screen tablet:mx-0">
@@ -49,7 +49,7 @@ export default async function Home() {
                     <h2 className="text-2xl font-bold laptop:text-4xl">Featured Project</h2>
                     <Link href={"/projects"} 
                           className="text-secondary bg-primary px-3 py-2 w-fit rounded-lg
-                                     hover:bg-accent transform hover:scale-95 transition duration-300 ease-in-out
+                                     hover:bg-accent hover:scale-95 transition duration-300 ease-in-out
                         ">View All</Link>
                 </div>
                 {/* flex flex-row flex-wrap items-center justify-center gap-8 mx-0 my-auto */}

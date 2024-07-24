@@ -3,15 +3,15 @@ import { ProjectProps, Tools } from "@/utilities/types";
 
 const ProjectCard: React.FC<ProjectProps> = ({ project }) => {
     return (
-        <div className="max-w-[500px] max-h-[600px] shadow-projects rounded-lg 
-                        transform hover:scale-105 transition duration-300 ease-in-out">
+        <div className="max-w-[500px] max-h-[600px] shadow-projects z-10
+                        hover:scale-105 transition duration-300 ease-in-out">
             <Link href={`/projects/${project.id}`} title={project.title.rendered}>
                 <div className="flex flex-col">
 
                     {/* Projects Featured Image */}
                     {project._embedded && project._embedded['wp:featuredmedia'] && project._embedded['wp:featuredmedia'][0] && (
                         <img
-                            className="rounded-t-lg h-[150px] object-cover
+                            className="rounded-t-lg h-[150px] object-cover relative z-0
                                        mobile-lg:h-[300px]
                                        desktop-lg:h-[350px]"
                             alt={project._embedded["wp:featuredmedia"][0].title.rendered}
