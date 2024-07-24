@@ -4,7 +4,6 @@ import { usePathname } from "next/navigation";
 import { Project } from "@/utilities/types";
 import TypeWriter from "./typewriter";
 import { useState, useEffect } from "react";
-import { log } from "console";
 
 // navigation links array
 const navLinks = [
