@@ -2,12 +2,13 @@ import Link from "next/link";
 import { Project } from "@/utilities/types";
 import { fetchProjects } from "@/utilities/apiCalls";
 import ProjectCard from "@/components/project-card";
+import ToContentButton from "@/components/to-content-button";
 
 export default async function Home() {
     const projects = await fetchProjects({query:"&per_page=3"});
     return (
-        <section className="flex flex-col justify-center items-center gap-4">
-            <div className="h-[calc(100vh-140px)] mx-auto my-0
+        <section className="flex flex-col justify-center items-center gap-8">
+            <div className="h-[calc(100vh-64px)] mx-auto my-0
                             flex flex-col items-center justify-center gap-8 
                             tablet:items-start tablet:h-screen tablet:mx-0">
                 <h2 className="w-[250px] text-left font-bold text-6xl
@@ -40,6 +41,7 @@ export default async function Home() {
                                      desktop:py-4 desktop:text-2xl">
                         Get to know me
                     </Link>
+                    <ToContentButton />
                 </div>
             </div>
 
@@ -53,8 +55,9 @@ export default async function Home() {
                         ">View All</Link>
                 </div>
                 {/* flex flex-row flex-wrap items-center justify-center gap-8 mx-0 my-auto */}
-                <section className="grid gap-12 mb-4
-                                    tablet:mb-8 tablet:justify-center tablet:items-center
+                <section id="main"
+                         className="grid gap-12 mb-4 scroll-m-48
+                                    tablet:mb-8 tablet:justify-center tablet:items-center tablet:scroll-m-24
                                     desktop:grid-cols-2 desktop:justify-between
                                     desktop-lg:grid-cols-3">
                     {projects.map((project: Project) => (

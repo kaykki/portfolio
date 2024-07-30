@@ -20,7 +20,7 @@ export default function RootLayout({
 	children: React.ReactNode
 }) {
 	return (
-		<html lang="en">
+		<html lang="en" className="scroll-smooth">
 			<body className="text-primary bg-secondary bg-gradient-radial">
 				<Header />
 				<main className="my-8 mx-[20px]
