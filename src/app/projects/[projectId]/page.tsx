@@ -18,6 +18,13 @@ export const generateStaticParams = async () => {
     }));
 };
 
+// export const headerHeight = () => {
+//     const header = document.getElementById('pageHeader');
+
+//     return header?.clientHeight;
+// }
+// console.log(headerHeight());
+
 export const generateMetadata = async ({ params }: Props): Promise<Metadata> => {
 
     const response = await fetch(`https://kayki.ca/portfolio/wp-json/wp/v2/projects/${params.projectId}?_embed`);
@@ -43,7 +50,7 @@ export default async function ProjectDetails({
     const project: Project = await response.json();
 
     return (
-        <section className="flex flex-col gap-8">
+        <section className={`flex flex-col gap-8`}>
             {project.acf.showcase.project_preview.subtype == "webm" &&
                 <video autoPlay playsInline loop muted className="rounded-xl shadow-project-details">
                     <source src={project.acf.showcase.project_preview.url}/>

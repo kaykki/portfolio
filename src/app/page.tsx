@@ -45,6 +45,7 @@ export default async function Home() {
                 </div>
             </div>
 
+            {/* Featured Projects */}
             <section className="mx-auto my-0 flex flex-col gap-8
                                 tablet:mx-0">
                 <div className="flex justify-between items-center">
@@ -54,7 +55,7 @@ export default async function Home() {
                                      hover:bg-accent hover:scale-95 transition duration-300 ease-in-out
                         ">View All</Link>
                 </div>
-                {/* flex flex-row flex-wrap items-center justify-center gap-8 mx-0 my-auto */}
+
                 <section id="main"
                          className="grid gap-12 mb-4 scroll-m-48
                                     tablet:mb-8 tablet:justify-center tablet:items-center tablet:scroll-m-24
