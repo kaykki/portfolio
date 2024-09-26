@@ -1,7 +1,6 @@
 import { Metadata } from "next";
 import "./styles.css";
 
-// components
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 
@@ -24,7 +23,7 @@ export default function RootLayout({
 			<body className="text-primary bg-secondary bg-gradient-radial">
 				<Header />
 				<main className="mt-[130px] mb-8 mx-[20px]
-								tablet:mr-[75px] tablet:ml-[275px] tablet:pt-0
+								tablet:mr-[75px] tablet:ml-[275px] tablet:mt-16 tablet:pt-0
 								laptop:mr-[150px] laptop:ml-[350px] laptop:pt-0">
 					{children}
 				</main>

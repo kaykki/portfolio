@@ -7,10 +7,10 @@ import ToContentButton from "@/components/to-content-button";
 export default async function Home() {
     const projects = await fetchProjects({query:"&per_page=3"});
     return (
-        <section className="flex flex-col justify-center items-center gap-8">
-            <div className="h-[calc(100vh-64px)] mx-auto my-0
-                            flex flex-col items-center justify-center gap-8 
-                            tablet:items-start tablet:h-screen tablet:mx-0">
+        <section className="flex flex-col justify-center items-center gap-32">
+            <div className="h-[calc(100vh-230px)] mx-auto my-0
+                            flex flex-col gap-8 justify-center
+                            tablet:items-start tablet:h-[calc(100vh-128px)] tablet:mx-0">
                 <h2 className="w-[250px] text-left font-bold text-6xl
                                mobile-lg:w-11/12 mobile-lg:text-8xl
                                tablet:text-8xl tablet:text-left
@@ -23,7 +23,7 @@ export default async function Home() {
                     <p className="w-[250px] text-xl text-left
                                   mobile-lg:w-11/12
                                   laptop:text-4xl">Front-End Web Developer</p>
-                <div className="flex flex-col gap-4 items-center justify-center w-full
+                <div className="flex flex-col gap-8 items-center justify-center w-full
                                 mobile-lg:flex-row
                                 tablet:flex-row tablet:justify-start">
 

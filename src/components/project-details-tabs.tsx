@@ -122,7 +122,7 @@ const ProjectDetailsTabs: React.FC<ProjectProps> = ({ project }) => {
 
                     {/* Reflection */}
                     <h2 className="font-bold text-2xl">Reflection:</h2>
-                    <p>{project.acf.development.improvements}</p>
+                    <p>{project.acf.design.improvements}</p>
                 </section>
             </TabPanel>
         </Tabs>
