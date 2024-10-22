@@ -29,6 +29,11 @@ const config: Config = {
         'laptop': '60em',
         'desktop': '75em',
         'desktop-lg': '94em'
+      },
+      fill: {
+        primary: "#004D57",
+        secondary: "#F0F0F0",
+        accent: "#1E8572"
       }
     },
   },

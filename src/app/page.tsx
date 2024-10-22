@@ -49,7 +49,7 @@ export default async function Home() {
             <section className="mx-auto my-0 flex flex-col gap-8
                                 tablet:mx-0">
                 <div className="flex justify-between items-center">
-                    <h2 className="text-2xl font-bold laptop:text-4xl">Featured Project</h2>
+                    <h2 className="text-2xl font-bold laptop:text-4xl">Featured Projects</h2>
                     <Link href={"/projects"} 
                           className="text-secondary bg-primary px-3 py-2 w-fit rounded-lg
                                      hover:bg-accent hover:scale-95 transition duration-300 ease-in-out
