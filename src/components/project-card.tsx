@@ -1,7 +1,11 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ProjectProps, Tools } from "@/utilities/types";
 
 const ProjectCard: React.FC<ProjectProps> = ({ project }) => {
+
+    const imageSrc = project._embedded['wp:featuredmedia'][0].media_details.sizes.full.source_url;
+
     return (
         <Link href={`/projects/${project.id}`} title={project.title.rendered}
             className="flex flex-col max-w-[500px] max-h-[600px] shadow-projects z-10 rounded-lg

@@ -23,7 +23,7 @@ const TypeWriter: React.FC<TypeWriterProps> = ({ text, delay = 100 }) => {
         }
     }, [currentIndex, delay, text]);
     
-    return <span>{currentText}</span>;
+    return currentText;
 }
 
 export default TypeWriter;

@@ -44,9 +44,9 @@ export default function Header() {
         <header id="pageHeader" className="flex flex-col justify-between items-center z-50">
 
             {/* Fixed Heading */}
-            <div className="fixed top-6 left-0 p-4 shadow-heading bg-primary flex items-center gap-4 rounded-r-lg z-20
+            <div className={`fixed top-6 left-0 p-4 shadow-heading bg-primary flex items-center gap-4 rounded-r-lg z-20
                             tablet:px-6
-                            desktop:px-8">
+                            desktop:px-8`}>
                 <Link href="/" 
                       title="Home" 
                       className="transform hover:scale-105 transition duration-300 ease-in-out">
@@ -56,7 +56,7 @@ export default function Header() {
                                     tablet:h-[75px] tablet:w-[70]"/>
                 </Link>
                 {pageHeading &&
-                    <h1 className="block text-2xl font-bold text-secondary lg:text-3xl">
+                    <h1 className={`${pageHeading.length > 20 ? "text-xl tablet:max-w-[140px]" : "block text-2xl lg:text-3xl"} font-bold text-secondary`}>
                         <TypeWriter text={pageHeading} delay={75} />
                     </h1>
                 }

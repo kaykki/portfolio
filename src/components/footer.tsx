@@ -5,7 +5,6 @@ export default function Footer() {
             h-1/6 pb-28
             tablet:fixed tablet:bottom-0 tablet:left-4 tablet:pb-4
             laptop:fixed laptop:bottom-0 laptop:left-8 laptop:pb-4">
-            <h2 className="font-bold">Connect with me!</h2>
             <nav>
                 <ul className="flex flex-row gap-2">
                     <li>
